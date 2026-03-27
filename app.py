@@ -79,25 +79,25 @@ def init_db():
     if cursor.fetchone()[0] == 0:
         cursor.execute(
             "INSERT INTO users (username, password_hash, role, email) VALUES (?, ?, ?, ?)",
-            (ADMIN_USER, admin_hash, "admin", "admin@drakkar-shipping.is")
+            (ADMIN_USER, admin_hash, "admin", "admin@drakkar-shipping.com")
         )
 
     cursor.execute("SELECT COUNT(*) FROM users WHERE username = ?", (AUDIT_USER,))
     if cursor.fetchone()[0] == 0:
         cursor.execute(
             "INSERT INTO users (username, password_hash, role, email) VALUES (?, ?, ?, ?)",
-            (AUDIT_USER, audit_hash, "auditor", "audit@drakkar-shipping.is")
+            (AUDIT_USER, audit_hash, "auditor", "audit@drakkar-shipping.com")
         )
 
     sample_shipments = [
-        ("DK-2026-00142", "Nordvik Fisheries", "Reykjavik Cold Storage", "Akureyri", "Reykjavik", "Delivered", 2450.0, "Frozen seafood — 12 pallets"),
-        ("DK-2026-00187", "Eldfjall Metals", "Hamburg Steelworks", "Husavik", "Hamburg", "In Transit", 18500.0, "Raw aluminum ingots"),
-        ("DK-2026-00203", "Borg Textiles Ltd", "London Distribution Centre", "Isafjordur", "London", "In Transit", 780.0, "Wool textiles — 40 crates"),
-        ("DK-2026-00219", "Vatnajokull Energy", "Oslo Terminal", "Reydarfjordur", "Oslo", "Customs Hold", 3200.0, "Industrial equipment parts"),
-        ("DK-2026-00234", "Snaefell Agriculture", "Copenhagen Harbour", "Dalvik", "Copenhagen", "Loading", 1100.0, "Organic produce — refrigerated"),
-        ("DK-2026-00251", "Hekla Pharmaceuticals", "Rotterdam Port", "Reykjavik", "Rotterdam", "In Transit", 420.0, "Pharmaceutical supplies — temp controlled"),
-        ("DK-2026-00268", "Grimsnes Construction", "Bergen Docks", "Vestmannaeyjar", "Bergen", "Delivered", 6800.0, "Construction materials — steel beams"),
-        ("DK-2026-00275", "Thingvellir Tech", "Dublin Freight", "Keflavik", "Dublin", "Awaiting Pickup", 95.0, "Electronic components"),
+        ("DK-2026-00142", "Nordvik Fisheries", "Stavanger Cold Storage", "Bergen", "Stavanger", "Delivered", 2450.0, "Frozen seafood — 12 pallets"),
+        ("DK-2026-00187", "Fjordstaal Metals", "Hamburg Steelworks", "Trondheim", "Hamburg", "In Transit", 18500.0, "Raw aluminum ingots"),
+        ("DK-2026-00203", "Borg Textiles Ltd", "London Distribution Centre", "Alesund", "London", "In Transit", 780.0, "Wool textiles — 40 crates"),
+        ("DK-2026-00219", "Nordkraft Energy", "Oslo Terminal", "Haugesund", "Oslo", "Customs Hold", 3200.0, "Industrial equipment parts"),
+        ("DK-2026-00234", "Vestland Agriculture", "Copenhagen Harbour", "Molde", "Copenhagen", "Loading", 1100.0, "Organic produce — refrigerated"),
+        ("DK-2026-00251", "Solberg Pharmaceuticals", "Rotterdam Port", "Stavanger", "Rotterdam", "In Transit", 420.0, "Pharmaceutical supplies — temp controlled"),
+        ("DK-2026-00268", "Kvitfjell Construction", "Bergen Docks", "Kristiansand", "Bergen", "Delivered", 6800.0, "Construction materials — steel beams"),
+        ("DK-2026-00275", "Nordefjord Tech", "Dublin Freight", "Oslo", "Dublin", "Awaiting Pickup", 95.0, "Electronic components"),
     ]
 
     for shipment in sample_shipments:

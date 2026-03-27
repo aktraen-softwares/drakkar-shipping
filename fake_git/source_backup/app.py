@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Drakkar Shipping — Internal Shipping Portal
-Developer: Ragnar Sigurdsson <ragnar.sigurdsson@drakkar-shipping.is>
+Developer: Ragnar Stenberg <ragnar.stenberg@drakkar-shipping.com>
 Last updated: 2026-03-15
 
 WARNING: This file contains credentials. Do NOT commit to public repos.
@@ -39,8 +39,8 @@ DEBUG_MODE = True
 INTERNAL_API_KEY = "dk-internal-api-9f8e7d6c5b4a"
 
 # SMTP config for notifications
-SMTP_HOST = "mail.drakkar-shipping.is"
-SMTP_USER = "noreply@drakkar-shipping.is"
+SMTP_HOST = "mail.drakkar-shipping.com"
+SMTP_USER = "noreply@drakkar-shipping.com"
 SMTP_PASS = "Dk$mail2026!"
 
 # ============================================================

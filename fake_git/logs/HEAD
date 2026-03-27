@@ -1,5 +1,5 @@
-0000000000000000000000000000000000000000 e1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0 Ragnar Sigurdsson <ragnar.sigurdsson@drakkar-shipping.is> 1710500000 +0000	commit (initial): initial commit — Flask shipping portal
-e1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0 b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1 Ragnar Sigurdsson <ragnar.sigurdsson@drakkar-shipping.is> 1710600000 +0000	commit: add tracking functionality and client login
-b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1 c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2 Ragnar Sigurdsson <ragnar.sigurdsson@drakkar-shipping.is> 1710700000 +0000	commit: add admin panel and debug endpoint
-c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2 d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3 Ragnar Sigurdsson <ragnar.sigurdsson@drakkar-shipping.is> 1710800000 +0000	commit: update database path for Docker deployment
-d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3 a3f8c2e1d4b5a6f7c8d9e0f1a2b3c4d5e6f7a8b9 Ragnar Sigurdsson <ragnar.sigurdsson@drakkar-shipping.is> 1710900000 +0000	commit: fix: update database credentials for production deploy
+0000000000000000000000000000000000000000 e1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0 Ragnar Stenberg <ragnar.stenberg@drakkar-shipping.com> 1710500000 +0000	commit (initial): initial commit — Flask shipping portal
+e1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0 b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1 Ragnar Stenberg <ragnar.stenberg@drakkar-shipping.com> 1710600000 +0000	commit: add tracking functionality and client login
+b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1 c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2 Ragnar Stenberg <ragnar.stenberg@drakkar-shipping.com> 1710700000 +0000	commit: add admin panel and debug endpoint
+c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2 d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3 Ragnar Stenberg <ragnar.stenberg@drakkar-shipping.com> 1710800000 +0000	commit: update database path for Docker deployment
+d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3 a3f8c2e1d4b5a6f7c8d9e0f1a2b3c4d5e6f7a8b9 Ragnar Stenberg <ragnar.stenberg@drakkar-shipping.com> 1710900000 +0000	commit: fix: update database credentials for production deploy
