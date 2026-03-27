@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% block title %}Admin Panel &mdash; Drakkar Shipping{% endblock %}
+
+{% block content %}
+<section class="page-header admin-header">
+    <div class="container">
+        <h1>Administration Panel</h1>
+        <p>Internal management console. Authorized personnel only.</p>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        <div class="dashboard-stats">
+            <div class="dash-stat">
+                <span class="dash-stat-number">{{ users|length }}</span>
+                <span class="dash-stat-label">Registered Users</span>
+            </div>
+            <div class="dash-stat">
+                <span class="dash-stat-number">{{ shipment_count }}</span>
+                <span class="dash-stat-label">Total Shipments</span>
+            </div>
+            <div class="dash-stat">
+                <span class="dash-stat-number">{{ logs|length }}</span>
+                <span class="dash-stat-label">Recent Log Entries</span>
+            </div>
+        </div>
+
+        <h2>User Accounts</h2>
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Role</th>
+                        <th>Email</th>
+                        <th>Created</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for u in users %}
+                    <tr>
+                        <td>{{ u.id }}</td>
+                        <td>{{ u.username }}</td>
+                        <td><span class="role-badge role-{{ u.role }}">{{ u.role }}</span></td>
+                        <td>{{ u.email }}</td>
+                        <td>{{ u.created_at }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Admin API Endpoints</h2>
+        <div class="admin-endpoints">
+            <p>The following API endpoints are available for programmatic access:</p>
+            <ul>
+                <li><code>GET /admin/users</code> &mdash; List all user accounts (JSON)</li>
+                <li><code>GET /admin/logs</code> &mdash; Recent admin activity logs (JSON)</li>
+                <li><code>GET /debug</code> &mdash; Application debug information (JSON)</li>
+                <li><code>GET /api/status</code> &mdash; Service health status (JSON)</li>
+            </ul>
+        </div>
+
+        {% if logs %}
+        <h2>Recent Activity Logs</h2>
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Action</th>
+                        <th>User</th>
+                        <th>Details</th>
+                        <th>IP Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for log in logs %}
+                    <tr>
+                        <td>{{ log.timestamp }}</td>
+                        <td>{{ log.action }}</td>
+                        <td>{{ log.user }}</td>
+                        <td>{{ log.details }}</td>
+                        <td>{{ log.ip_address }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

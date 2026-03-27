@@ -1,0 +1,21 @@
+# Drakkar Shipping — Docker Compose
+# Deploy: docker-compose up -d
+# Database stored in named volume at /data/drakkar.db
+
+services:
+  web:
+    build: .
+    ports:
+      - "80:5000"
+    environment:
+      - FLASK_SECRET_KEY=drakkar-flask-secret-2026-xK9mW3pQ7vL
+      - DATABASE_PATH=/data/drakkar.db
+      - FLASK_DEBUG=1
+      - ADMIN_USER=admin
+      - ADMIN_PASS=DK!superadmin#2026
+    volumes:
+      - db-data:/data
+    restart: unless-stopped
+
+volumes:
+  db-data:

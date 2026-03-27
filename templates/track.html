@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}Track Shipment &mdash; Drakkar Shipping{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>Track Your Shipment</h1>
+        <p>Enter your tracking number to get real-time status updates.</p>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        <div class="track-container">
+            <form method="POST" action="/track" class="track-form">
+                <div class="track-input-group">
+                    <input type="text" name="tracking_number" placeholder="Enter tracking number (e.g. DK-2026-00142)"
+                           value="{{ request.form.get('tracking_number', '') }}" class="track-input" autofocus>
+                    <button type="submit" class="btn btn-primary">Track</button>
+                </div>
+            </form>
+
+            {% if error %}
+            <div class="alert alert-danger">{{ error }}</div>
+            {% endif %}
+
+            {% if result %}
+            <div class="track-result">
+                <h2>Shipment Details</h2>
+                <table class="detail-table">
+                    <tr>
+                        <th>Tracking Number</th>
+                        <td>{{ result.tracking_number }}</td>
+                    </tr>
+                    <tr>
+                        <th>Status</th>
+                        <td>
+                            <span class="status-badge status-{{ result.status|lower|replace(' ', '-') }}">
+                                {{ result.status }}
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Sender</th>
+                        <td>{{ result.sender_name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Receiver</th>
+                        <td>{{ result.receiver_name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Origin</th>
+                        <td>{{ result.origin }}</td>
+                    </tr>
+                    <tr>
+                        <th>Destination</th>
+                        <td>{{ result.destination }}</td>
+                    </tr>
+                    <tr>
+                        <th>Weight</th>
+                        <td>{{ result.weight_kg }} kg</td>
+                    </tr>
+                    <tr>
+                        <th>Description</th>
+                        <td>{{ result.description }}</td>
+                    </tr>
+                    <tr>
+                        <th>Last Updated</th>
+                        <td>{{ result.updated_at }}</td>
+                    </tr>
+                </table>
+            </div>
+            {% endif %}
+
+            <div class="track-help">
+                <h3>Where to find your tracking number</h3>
+                <p>Your tracking number is included in your shipment confirmation email and follows the format <code>DK-YYYY-NNNNN</code> (e.g., DK-2026-00142). You can also find it on your bill of lading or in the client portal.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

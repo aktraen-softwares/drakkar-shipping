@@ -1,0 +1,5 @@
+fix: update database credentials for production deploy
+
+- Changed DB path to /data/drakkar.db
+- Updated SECRET_KEY (note: still hardcoded, TODO move to env)
+- Added admin account for emergency access

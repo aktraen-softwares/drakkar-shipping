@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}Dashboard &mdash; Drakkar Shipping{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>Client Dashboard</h1>
+        <p>Welcome, {{ session.get('user') }}. Here are your current shipments.</p>
+    </div>
+</section>
+
+<section class="content-section">
+    <div class="container">
+        <div class="dashboard-stats">
+            <div class="dash-stat">
+                <span class="dash-stat-number">{{ shipments|length }}</span>
+                <span class="dash-stat-label">Total Shipments</span>
+            </div>
+            <div class="dash-stat">
+                <span class="dash-stat-number">{{ shipments|selectattr('status', 'equalto', 'In Transit')|list|length }}</span>
+                <span class="dash-stat-label">In Transit</span>
+            </div>
+            <div class="dash-stat">
+                <span class="dash-stat-number">{{ shipments|selectattr('status', 'equalto', 'Delivered')|list|length }}</span>
+                <span class="dash-stat-label">Delivered</span>
+            </div>
+        </div>
+
+        <h2>All Shipments</h2>
+        <div class="table-container">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Tracking #</th>
+                        <th>Origin</th>
+                        <th>Destination</th>
+                        <th>Status</th>
+                        <th>Weight (kg)</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in shipments %}
+                    <tr>
+                        <td><code>{{ s.tracking_number }}</code></td>
+                        <td>{{ s.origin }}</td>
+                        <td>{{ s.destination }}</td>
+                        <td>
+                            <span class="status-badge status-{{ s.status|lower|replace(' ', '-') }}">
+                                {{ s.status }}
+                            </span>
+                        </td>
+                        <td>{{ s.weight_kg }}</td>
+                        <td>{{ s.description }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}
